@@ -10,7 +10,6 @@ const dinoSchema = new Schema({
         type: String,
         required: true
     },
-    Dossier: {
         Diet: {
             type: String,
             required: true
@@ -27,7 +26,6 @@ const dinoSchema = new Schema({
             type: String,
             required: true
         }
-    }
 
 })
 
