@@ -12,7 +12,7 @@ mongoose.set('strictQuery', true)
 mongoose.connect("mongodb+srv://Amurillo:Alex2015@cluster0.uvmcw4x.mongodb.net/ARKdb?retryWrites=true&w=majority", () => console.log('connected to database'))
 
 app.use('/dinos', require('./routes/dinos'))
-app.use('/dossier', require('./routes/dossier'))
+// app.use('/dossier', require('./routes/dossier'))
 
 app.use((err, req, res, next) => {
     console.log(err)

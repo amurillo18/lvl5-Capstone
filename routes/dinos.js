@@ -44,4 +44,15 @@ dinoRouter.put("/:dinoId",(req, res) => {
     })
 })
 
+// get one
+dinoRouter.get('/:dinoId',(req, res, next)=> {
+    Dino.findOne({_id: req.params.dinoId}, (err, dino) => {
+        if(err) {
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200). send(dino)
+    })
+})
+
 module.exports = dinoRouter
