@@ -7,7 +7,7 @@ const dinoSchema = new Schema({
         required: true
     },
     Image: {
-        type: URL,
+        type: String,
         required: true
     },
     Dossier: {
@@ -15,15 +15,15 @@ const dinoSchema = new Schema({
             type: String,
             required: true
         },
-        Tamable: {
+        Tameable: {
             type: Boolean,
             required: true
         },
-        Ridable: {
+        Rideable: {
             type: Boolean,
             required: true
         },
-        Temperment: {
+        Temperament: {
             type: String,
             required: true
         }
