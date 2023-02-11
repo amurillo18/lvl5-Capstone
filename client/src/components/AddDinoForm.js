@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export default function AddDinoForm(props){
-    const initInputs = {Name: "", Diet: "", Temperament: ""}
+    const initInputs = {Name: "", Diet: "", Temperament: "", Tameable: "", Rideable: ""}
     const [inputs, setInputs] = useState(initInputs)
 
     function handleChange(e){
@@ -11,12 +11,11 @@ export default function AddDinoForm(props){
 
     function handleSubmit(e){
         e.preventDefault()
-        // console.log(inputs)
         props.addDino(inputs)
-        setInputs(inputs)
+        setInputs(initInputs)
     }
 
-
+    console.log(inputs)
     return(
         <form onSubmit={handleSubmit}>
             <input
@@ -40,28 +39,36 @@ export default function AddDinoForm(props){
             onChange={handleChange}
             placeholder="Temperament"/>
 
-            <input
-            type="checkbox" 
-            name="Rideable"
-            value={inputs.Rideable}
-            onChange={handleChange}
-            placeholder="Rideable"/>
+            <select
+              type="checkbox"
+              name="Rideable"
+              value={inputs.Rideable}
+              onChange={handleChange}
+              placeholder="Rideable">
+                  <option value="">Rideable?</option>
+              <option value={true}>Yes</option>
+              <option value={false}>No</option>
+              </select>
+              
             Rideable
             
 
-            <input
-            type="checkbox"
+            <select
             name="Tameable"
             value={inputs.Tameable}
             onChange={handleChange}
-            placeholder="Tameable"/>
+            placeholder="Tameable">
+            <option value="">Tameable?</option>
+            <option value={true}>Yes</option>
+            <option value={false}>No</option>
+            </select>
             Tameable
             
 
             <input
-            type="image"
-            src=""
-            alt=""
+            type="imag"
+            alt='Submit'
+            src='Dino'
             value={inputs.Image}
             onChange={handleChange}
             placeholder="Image"/>

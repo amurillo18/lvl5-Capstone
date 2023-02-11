@@ -5,13 +5,14 @@ import AddDinoForm from './components/AddDinoForm.js'
 
 export default function App(){
   const [dino, setDino] = useState([])
+  console.log(dino)
 
   function getDino(){
     axios.get("/dinos")
     .then(res => setDino(res.data))
     .catch(err => console.log(err))
   }
-
+  
   function addDino(newDino){
     // console.log(newDino)
     axios.post("/dinos", newDino)
@@ -20,10 +21,11 @@ export default function App(){
       setDino(prevDino => [...prevDino, res.data])
     })
     .catch(err => console.log(err))
+    getDino()
   }
 
   useEffect(() => {
-    axios.get("/dinos")
+    // axios.get("/dinos")
     getDino()
   }, [])
 

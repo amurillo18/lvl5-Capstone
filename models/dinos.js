@@ -10,17 +10,17 @@ const dinoSchema = new Schema({
         type: String,
         required: true
     },
-    Dossier: {
+    
         Diet: {
             type: String,
             required: true
         },
         Tameable: {
-            type: Boolean,
+            type: String,
             required: true
         },
         Rideable: {
-            type: Boolean,
+            type: String,
             required: true
         },
         Temperament: {
@@ -29,6 +29,6 @@ const dinoSchema = new Schema({
         }
     }
 
-})
+)
 
 module.exports = mongoose.model("Dino", dinoSchema)
