@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export default function AddDinoForm(props){
-    const initInputs = {Name: "", Diet: "", Temperament: "", Tameable: "", Rideable: ""}
+    const initInputs = {Name: "", Diet: "", Temperament: "", Tameable: "", Rideable: "", Image: ""}
     
     const [inputs, setInputs] = useState(initInputs)
 
@@ -64,9 +64,8 @@ export default function AddDinoForm(props){
             </select>
 
             <input
-            type="image"
-            alt='Submit'
-            src='Dino'
+            // type="url"
+            name="Image"
             value={inputs.Image}
             onChange={handleChange}
             placeholder="Image"/>
