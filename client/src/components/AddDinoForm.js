@@ -1,7 +1,15 @@
 import React, { useState } from 'react'
 
 export default function AddDinoForm(props){
-    const initInputs = {Name: "", Diet: "", Temperament: ""}
+    // console.log(props)
+    const initInputs = {
+        Name: props.Name || "",
+        Diet: props.Diet || "",
+        Temperament: props.Temperament || "",
+        Rideable: props.Rideable || "",
+        Tameable: props.Tameable || "",
+        Image:props.Image || ""}
+        console.log(initInputs)
     const [inputs, setInputs] = useState(initInputs)
 
     function handleChange(e){
@@ -11,9 +19,10 @@ export default function AddDinoForm(props){
 
     function handleSubmit(e){
         e.preventDefault()
-        // console.log(inputs)
-        props.addDino(inputs)
-        setInputs(inputs)
+        console.log(inputs)
+        props.addDino(inputs,props._id)
+        setInputs(initInputs)
+
     }
 
 
@@ -40,26 +49,31 @@ export default function AddDinoForm(props){
             onChange={handleChange}
             placeholder="Temperament"/>
 
-            <input
-            type="checkbox" 
+            <select
             name="Rideable"
             value={inputs.Rideable}
             onChange={handleChange}
-            placeholder="Rideable"/>
-            Rideable
-            
+            placeholder="Rideable">
+                <option value="">Rideable?</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+            </select>
+                       
 
-            <input
-            type="checkbox"
+            <select
             name="Tameable"
             value={inputs.Tameable}
             onChange={handleChange}
-            placeholder="Tameable"/>
-            Tameable
+            placeholder="Tameable">
+            <option value="">Tameable?</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+            </select>
+
             
 
             <input
-            type="image"
+            name='Image'
             src=""
             alt=""
             value={inputs.Image}

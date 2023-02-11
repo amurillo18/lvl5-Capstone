@@ -14,16 +14,16 @@ export default function App(){
 
   function addDino(newDino){
     // console.log(newDino)
-    axios.post("/dinos", newDino)
+    axios.post('/dinos', newDino)
     .then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       setDino(prevDino => [...prevDino, res.data])
     })
     .catch(err => console.log(err))
+    getDino()
   }
 
   useEffect(() => {
-    axios.get("/dinos")
     getDino()
   }, [])
 
@@ -31,9 +31,10 @@ export default function App(){
   <div>
     <div className='dino-container'>
       <AddDinoForm 
+      // {...dino}
         addDino={addDino}
       />
-      { dino.map(dino => <Dino {...dino} key={dino.name}/>)}
+      { dino.map(dino => <Dino {...dino} key={dino._id}/>)}
     </div>
   </div>
   )

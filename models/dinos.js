@@ -10,22 +10,24 @@ const dinoSchema = new Schema({
         type: String,
         required: true
     },
+    Dossier: {
         Diet: {
             type: String,
-            required: true
+            // required: true
         },
         Tameable: {
             type: Boolean,
-            required: true
+            // required: true
         },
         Rideable: {
             type: Boolean,
-            required: true
+            // required: true
         },
         Temperament: {
             type: String,
-            required: true
+            // required: true
         }
+    }
 
 })
 
