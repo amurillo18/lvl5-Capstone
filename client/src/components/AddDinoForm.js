@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 export default function AddDinoForm(props){
     const initInputs = {Name: "", Diet: "", Temperament: "", Tameable: "", Rideable: ""}
+    
     const [inputs, setInputs] = useState(initInputs)
 
     function handleChange(e){
@@ -40,18 +41,17 @@ export default function AddDinoForm(props){
             placeholder="Temperament"/>
 
             <select
-              type="checkbox"
               name="Rideable"
               value={inputs.Rideable}
               onChange={handleChange}
               placeholder="Rideable">
-                  <option value="">Rideable?</option>
+              <option value="">Rideable?</option>
               <option value={true}>Yes</option>
               <option value={false}>No</option>
               </select>
               
-            Rideable
-            
+    
+           
 
             <select
             name="Tameable"
@@ -62,11 +62,9 @@ export default function AddDinoForm(props){
             <option value={true}>Yes</option>
             <option value={false}>No</option>
             </select>
-            Tameable
-            
 
             <input
-            type="imag"
+            type="image"
             alt='Submit'
             src='Dino'
             value={inputs.Image}

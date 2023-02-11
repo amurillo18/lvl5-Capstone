@@ -10,12 +10,11 @@ const dinoSchema = new Schema({
         type: String,
         required: true
     },
-    
-        Diet: {
+    Diet: {
             type: String,
-            required: true
+            // required: true
         },
-        Tameable: {
+     Tameable: {
             type: String,
             required: true
         },
@@ -25,7 +24,7 @@ const dinoSchema = new Schema({
         },
         Temperament: {
             type: String,
-            required: true
+            // required: true
         }
     }
 
