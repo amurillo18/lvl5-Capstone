@@ -1,15 +1,8 @@
 import React, { useState } from 'react'
 
 export default function AddDinoForm(props){
-    // console.log(props)
-    const initInputs = {
-        Name: props.Name || "",
-        Diet: props.Diet || "",
-        Temperament: props.Temperament || "",
-        Rideable: props.Rideable || "",
-        Tameable: props.Tameable || "",
-        Image:props.Image || ""}
-        console.log(initInputs)
+    const initInputs = {Name: "", Diet: "", Temperament: "", Tameable: "", Rideable: ""}
+    
     const [inputs, setInputs] = useState(initInputs)
 
     function handleChange(e){
@@ -19,13 +12,11 @@ export default function AddDinoForm(props){
 
     function handleSubmit(e){
         e.preventDefault()
-        console.log(inputs)
-        props.addDino(inputs,props._id)
+        props.addDino(inputs)
         setInputs(initInputs)
-
     }
 
-
+    console.log(inputs)
     return(
         <form onSubmit={handleSubmit}>
             <input
@@ -50,15 +41,17 @@ export default function AddDinoForm(props){
             placeholder="Temperament"/>
 
             <select
-            name="Rideable"
-            value={inputs.Rideable}
-            onChange={handleChange}
-            placeholder="Rideable">
-                <option value="">Rideable?</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-            </select>
-                       
+              name="Rideable"
+              value={inputs.Rideable}
+              onChange={handleChange}
+              placeholder="Rideable">
+              <option value="">Rideable?</option>
+              <option value={true}>Yes</option>
+              <option value={false}>No</option>
+              </select>
+              
+    
+           
 
             <select
             name="Tameable"
@@ -66,16 +59,14 @@ export default function AddDinoForm(props){
             onChange={handleChange}
             placeholder="Tameable">
             <option value="">Tameable?</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
+            <option value={true}>Yes</option>
+            <option value={false}>No</option>
             </select>
 
-            
-
             <input
-            name='Image'
-            src=""
-            alt=""
+            type="image"
+            alt='Submit'
+            src='Dino'
             value={inputs.Image}
             onChange={handleChange}
             placeholder="Image"/>

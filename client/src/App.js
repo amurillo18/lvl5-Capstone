@@ -5,13 +5,14 @@ import AddDinoForm from './components/AddDinoForm.js'
 
 export default function App(){
   const [dino, setDino] = useState([])
+  console.log(dino)
 
   function getDino(){
     axios.get("/dinos")
     .then(res => setDino(res.data))
     .catch(err => console.log(err))
   }
-
+  
   function addDino(newDino){
     // console.log(newDino)
     axios.post('/dinos', newDino)

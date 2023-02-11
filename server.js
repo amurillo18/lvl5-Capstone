@@ -4,7 +4,7 @@ const morgan = require("morgan")
 const mongoose = require("mongoose")
 
 
-const port = process.env.PORT || 5000;
+// const port = process.env.PORT || 5000;
 
 app.use(express.json())
 app.use(morgan('dev'))
@@ -20,6 +20,6 @@ app.use((err, req, res, next) => {
     return res.send({errMsg: err.message})
 })
 
-app.listen(port, () => {
-    console.log(`server is listening on port ${port}`)
+app.listen(5000, () => {
+    console.log(`server is listening on port 5000`)
 })
