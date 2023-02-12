@@ -1,9 +1,15 @@
-import React, { useState, useEffect} from 'react'
+import React , { useState, useEffect} from 'react'
+import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
+import Home from "./components/Home"
+import Dinos from "./components/dinoDirectory"
+import OneDino from './components/oneDino'
 import axios from 'axios'
-import Dino from './components/Dino.js'
-import AddDinoForm from './components/AddDinoForm.js'
+// import Dino from './Dino.js'
+// import AddDinoForm from "./AddDinoForm"
+
 
 export default function App(){
+
   const [dino, setDino] = useState([])
   console.log(dino)
 
@@ -27,16 +33,20 @@ export default function App(){
   useEffect(() => {
     getDino()
   }, [])
+ 
 
   return(
-  <div>
-    <div className='dino-container'>
-      <AddDinoForm 
-      // {...dino}
-        addDino={addDino}
-      />
-      { dino.map(dino => <Dino {...dino} key={dino._id}/>)}
-    </div>
-  </div>
+    <Router>
+      <nav className='header'>
+        <Link to="/Home">Home</Link>
+        <Link to="/dinos">Dino Directory</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/dinos" element={<Dinos getDino={getDino} addDino={addDino}/>}/>
+        <Route path="/dinos/dossier" element={<OneDino {...dino}/>}/>
+      </Routes>
+    </Router>
+    
   )
 }
