@@ -38,13 +38,15 @@ p {
     
 }
 
-.Homepage{
+.Homepage,
+.about{
     background-color: #9f8170;
     height: 550px;
     border-radius: 0;
 }
 
-.hometitle{
+.hometitle,
+.about-title{
    text-align: center;
 }
 
@@ -59,4 +61,12 @@ body {
     line-height: normal;
     text-align: justify;
     white-space: 10px;
+}
+
+.image-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px;
+    margin-left: 60px;
 }

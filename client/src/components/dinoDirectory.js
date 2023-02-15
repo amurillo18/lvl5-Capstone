@@ -3,25 +3,36 @@ import Dino from './Dino.js'
 import AddDinoForm from "./AddDinoForm"
 import axios from 'axios'
 
-function DinoDirectory (addDino){
+function DinoDirectory (){
   const [dino, setDino] = useState([])
+  //console.log(dino)
 
   function getDino(){
     axios.get("/dinos")
     .then(res => setDino(res.data))
     .catch(err => console.log(err))
   }
+  
+  function addDino(newDino){
+    // console.log(newDino)
+    axios.post('/dinos', newDino)
+    .then(res => {
+      // console.log(res.data)
+      setDino(prevDino => [...prevDino, res.data])
+    })
+    .catch(err => console.log(err))
+    getDino()
+  }
 
   useEffect(() => {
     getDino()
-    // eslint-disable-next-line
   }, [])
+
 return(
     
 <div>
     <div className='dino-container'>
-      <AddDinoForm 
-        addDino={addDino}
+      <AddDinoForm addDino={addDino}
       />
     {dino.map(dino => <Dino {...dino} key={dino._id} />)}
     </div>
