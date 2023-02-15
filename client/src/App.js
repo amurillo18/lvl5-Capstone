@@ -42,7 +42,7 @@ export default function App(){
         <Link to="/dinos">Dino Directory</Link>
       </nav>
       <Routes>
-        <Route path="/" element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
         <Route path="/dinos" element={<Dinos getDino={getDino} addDino={addDino}/>}/>
         <Route path="/dinos/dossier" element={<OneDino {...dino}/>}/>
       </Routes>
